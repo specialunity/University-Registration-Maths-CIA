@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Registration System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>University Course Registration</h1>
+        <p>CIA-1A – Real-Life Practical Assignment</p>
+    </div>
+
+    <div class="student">
+        <b>Submitted By:</b> Vishesh Agrawal<br>
+        <b>Class:</b> 1 BCA B<br>
+        <b>Roll No.:</b> 26215140<br>
+        <b>Submitted To:</b> Prof. Abhinav Singhal<br>
+        <b>Subject:</b> Foundational Mathematics<br>
+        <b>University:</b> Christ (Deemed to be University), Delhi NCR
+    </div>
+
+    <div class="main">
+
+        <div class="left">
+
+            <h2>Course Registration</h2>
+
+            <p>Select the course you want to register for:</p>
+
+            <select id="course">
+                <option>BCA</option>
+                <option>MCA</option>
+                <option>BBA</option>
+                <option>B.Com</option>
+            </select>
+
+            <h2>Eligibility Check</h2>
+
+            <div class="condition">
+                <input type="checkbox" id="fees">
+                <label for="fees">Fees have been paid</label>
+            </div>
+
+            <div class="condition">
+                <input type="checkbox" id="pre">
+                <label for="pre">Required prerequisite is completed</label>
+            </div>
+
+            <div class="condition">
+                <input type="checkbox" id="seats">
+                <label for="seats">Seats are available</label>
+            </div>
+
+            <div class="condition">
+                <input type="checkbox" id="clash">
+                <label for="clash">There is no timetable clash</label>
+            </div>
+
+            <button onclick="checkRegistration()">
+                Check Eligibility
+            </button>
+
+            <div id="result"></div>
+
+        </div>
+
+        <div class="right">
+
+            <h2>Registration Information</h2>
+
+            <p>
+                Students must satisfy all the given conditions
+                before registering for a course.
+            </p>
+
+            <p>
+                The system checks each condition and gives the
+                final registration result.
+            </p>
+
+            <p>
+                If even one requirement is not fulfilled,
+                the registration cannot be completed.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="explanation">
+
+        <h2>Logic Behind the System</h2>
+
+        <p>
+            Four conditions are represented using propositions.
+            All four conditions are connected using AND.
+        </p>
+
+        <div class="formula">
+            <b>(P ∧ Q ∧ R ∧ S) → T</b>
+        </div>
+
+        <p>
+            P = Fees Paid<br>
+            Q = Prerequisite Completed<br>
+            R = Seats Available<br>
+            S = No Timetable Clash<br>
+            T = Registration Successful
+        </p>
+
+    </div>
+
+    <div class="explanation">
+
+        <h2>Working of the Portal</h2>
+
+        <p>
+            When all four conditions are selected, the system
+            considers the student eligible for registration.
+            If any condition is missing, registration is rejected.
+        </p>
+
+    </div>
+
+<div class="truth-table">
+
+    <h2>Truth Table</h2>
+
+    <p>
+        The truth table shows all possible combinations of the
+        four conditions. Registration is successful only when
+        all four conditions are true.
+    </p>
+
+    <table>
+        <tr>
+            <th>P</th>
+            <th>Q</th>
+            <th>R</th>
+            <th>S</th>
+            <th>T</th>
+        </tr>
+
+        <tr>
+            <td>T</td><td>T</td><td>T</td><td>T</td><td class="true">T</td>
+        </tr>
+        <tr>
+            <td>T</td><td>T</td><td>T</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>T</td><td>T</td><td>F</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>T</td><td>T</td><td>F</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>T</td><td>F</td><td>T</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>T</td><td>F</td><td>T</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>T</td><td>F</td><td>F</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>T</td><td>F</td><td>F</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>T</td><td>T</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>T</td><td>T</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>T</td><td>F</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>T</td><td>F</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>F</td><td>T</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>F</td><td>T</td><td>F</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>F</td><td>F</td><td>T</td><td class="false">F</td>
+        </tr>
+        <tr>
+            <td>F</td><td>F</td><td>F</td><td>F</td><td class="false">F</td>
+        </tr>
+    </table>
+
+    
+
+    <p class="table-note">
+        P = Fees Paid &nbsp; | &nbsp;
+        Q = Prerequisite Completed &nbsp; | &nbsp;
+        R = Seats Available &nbsp; | &nbsp;
+        S = No Timetable Clash &nbsp; | &nbsp;
+        T = Registration Successful
+    </p>
+
+</div>
+
+    <div class="footer">
+        Foundational Mathematics Project
+    </div>
+
+    <script>
+
+        function checkRegistration() {
+
+            let fees = document.getElementById("fees").checked;
+            let pre = document.getElementById("pre").checked;
+            let seats = document.getElementById("seats").checked;
+            let clash = document.getElementById("clash").checked;
+
+            let course = document.getElementById("course").value;
+            let result = document.getElementById("result");
+
+            if (fees && pre && seats && clash) {
+
+                result.className = "success";
+
+                result.innerHTML =
+                    "Registration Successful! You are eligible for "
+                    + course + ".";
+
+            }
+
+            else {
+
+                let reason = "Registration Failed! ";
+
+                if (!fees) {
+                    reason += "Fees not paid. ";
+                }
+
+                if (!pre) {
+                    reason += "Prerequisite incomplete. ";
+                }
+
+                if (!seats) {
+                    reason += "No seats available. ";
+                }
+
+                if (!clash) {
+                    reason += "Timetable clash exists.";
+                }
+
+                result.className = "failed";
+
+                result.innerHTML = reason;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
